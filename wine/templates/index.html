@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ML_wine quality </title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600">        
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/media-queries.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+    
+        <!-- Loader -->
+    	<div class="loader">
+    		<div class="loader-img"></div>
+    	</div>
+
+		<!-- Top menu -->
+		<nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
+			<div class="container">
+				Употребление алкоголя вредит вашему здоровью! "Вино к алкоголю не относится"
+				<!-- <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div> -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<!-- <div class="collapse navbar-collapse" id="top-navbar-1">
+					<ul class="nav navbar-nav">
+						<li><a class="scroll-link" href="#top-content">Ссылка 1</a></li>
+						<li><a class="scroll-link" href="#services">Ссылка 2</a></li>
+						<li><a class="scroll-link" href="#portfolio">Ссылка 3</a></li>
+						<li><a class="scroll-link" href="#testimonials">Ссылка 4</a></li>
+						<li><a class="scroll-link" href="#blog">Ссылка 5</a></li>
+						<li><a class="scroll-link" href="#footer">Ссылка 6</a></li>
+					</ul> -->
+					<!-- <div class="navbar-text navbar-right">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-dribbble"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-pinterest"></i></a>
+					</div> -->
+				</div>
+			</div>
+		</nav>
+
+        <!-- Top content -->
+        <div class="top-content">
+        	
+            <div class="inner-bg">
+                <div class="container">
+                	
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                        	<div class="logo wow fadeInDown">
+                        		<a href="index.html"></a>
+                        	</div>
+                            <h1 class="wow fadeInLeftBig">Определение качества вина</h1>
+                            <div class="description wow fadeInLeftBig">
+                            	<p>
+	                            	Мы определяем качество белого вина с помощью нейросети
+                            	</p>
+                            </div>
+                            <div class="top-big-link wow fadeInUp">
+                            	<a class="btn btn-link-1 scroll-link" href="#services">Приступить</a>
+                            	<!-- <a class="btn btn-link-2 scroll-link" href="#services">Приступить</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Services -->
+        <div class="services-container section-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 services section-description wow fadeIn">
+	                    <h2>Ввод параметров вина</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                </div>
+	            </div>
+	            <div class="row">
+                	<div class="col-sm-4 services-box wow fadeInUp">
+                		<div class="row">
+                			<div class="col-sm-4">
+			                	<div class="services-box-icon">
+			                		<i class="fa fa-magic"></i>
+			                	</div>
+		                	</div>
+	                		<div class="col-sm-8">
+	                    		<h3>Химические показатели</h3>
+	                    		<div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Хлориды</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+								  <div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Сульфаты</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+								  <div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Своб. диоксид серы</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+								  <div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Общ. диоксид серы</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+	                    	</div>
+	                    </div>
+                    </div>
+                    <div class="col-sm-4 services-box wow fadeInDown">
+	                	<div class="row">
+                			<div class="col-sm-4">
+			                	<div class="services-box-icon">
+			                		<i class="fa fa-cog"></i>
+			                	</div>
+		                	</div>
+	                		<div class="col-sm-8">
+	                    		<h3>Кислотные показатели</h3>
+	                    		<div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Фиксир. кислотность</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+								  <div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Летучая кислотность</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+								  <div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Лимонная кислота</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+								  <div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Остаточный сахар</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+	                    	</div>
+	                    </div>
+                    </div>
+                    <div class="col-sm-4 services-box wow fadeInUp">
+	                	<div class="row">
+                			<div class="col-sm-4">
+			                	<div class="services-box-icon">
+			                		<i class="fa fa-pencil"></i>
+			                	</div>
+		                	</div>
+	                		<div class="col-sm-8">
+	                    		<h3>Общие <br /> показатели</h3>
+	                    		<div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">pH</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+								  <div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Плотность</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+								  <div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+									  <span class="input-group-text" id="inputGroup-sizing-sm">Алкоголь</span>
+									</div>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								  </div>
+	                    	</div>
+	                    	</div>
+	                    </div>
+                    </div>
+	            </div>
+	        </div>
+
+	<!-- Call to action -->
+	<div class="call-to-action-container section-container section-container-image-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 call-to-action section-description wow fadeInLeftBig">
+					<p>
+						Получение результатов может занять некоторое время, спасибо за ожидание мы расчитываем!
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 section-bottom-button wow fadeInUp">
+					<a class="btn btn-link-1" href="result.html">Получить результат</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+
+        <!-- Great support -->
+        <div class="great-support-container section-container section-container-gray-bg">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 great-support section-description wow fadeIn">
+	                </div>
+	            </div>
+	            <div class="row">
+	            	<div class="col-sm-7 great-support-box wow fadeInLeft">
+	                    <div class="great-support-box-text great-support-box-text-left">
+	                    	<h3>Как же мы производим оценку?</h3>
+	                    	<p class="medium-paragraph">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+	                    		sed do eiusmod tempor incididunt ut labore et. Ut wisi enim ad minim veniam, quis nostrud.
+	                    	</p>
+	                    	<p>
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
+	                    		Ut wisi enim ad minim veniam, quis nostrud. 
+	                    		Exerci tation ullamcorper suscipit <span class="colored-text">lobortis nisl</span> ut aliquip ex ea commodo consequat. 
+	                    		Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl. 
+	                    	</p>
+	                    	<p>
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
+	                    		Ut wisi enim ad minim veniam, quis nostrud. 
+	                    		Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+	                    	</p>
+	                    </div>
+	                </div>
+	                <div class="col-sm-5 great-support-box great-support-box-phone wow fadeInUp">
+	                    <img src="assets/img/devices/iphone.png" alt="">
+	                </div>
+	            </div>
+	        </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer-container">
+	        <div class="container">
+	        	<div class="row">
+                    <div class="col-sm-5 col-sm-offset-1 footer-right">
+                    	<h3>Подписываться на нас не надо, мы здесь ради зачета автоматом</h3>
+                    	<div class="footer-social">
+                    		<a href="#"><i class="fa fa-facebook"></i></a>
+	                    	<a href="#"><i class="fa fa-dribbble"></i></a>
+	                    	<a href="#"><i class="fa fa-twitter"></i></a>
+	                    	<a href="#"><i class="fa fa-instagram"></i></a>
+	                    	<a href="#"><i class="fa fa-pinterest"></i></a>
+                    	</div>
+                    	<div class="footer-copyright">
+                    		&copy; Для проекта по ЧМВД мы защитили права и никто не скопирует наш проект <br>
+                            Скачать всё это дело можно здесь <a href="https://github.com/Aarjion/Project_Odinaev_Ryabov_Sartaev">GitHub</a>
+                    	</div>
+                    </div>
+                    
+                </div>
+	        </div>
+	        
+	        <div class="container-fluid">
+	        	<div class="row">
+                	<div class="col-sm-12 footer-bottom">
+                		<a class="scroll-link" href="#top-content"><i class="fa fa-chevron-up"></i></a>
+                	</div>
+                </div>
+	        </div>
+        </footer>
+
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/retina-1.1.0.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>
