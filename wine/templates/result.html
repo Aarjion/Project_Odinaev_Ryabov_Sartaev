@@ -1,85 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ML_wine quality </title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ML_wine quality </title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/form-elements.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/media-queries.css">
-
-    <!--Chartjs CDN-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-
-</head>
-
-<body>
-
-<!-- Loader -->
-<div class="loader">
-    <div class="loader-img"></div>
-</div>
-
-<!-- Top menu -->
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
-    Употребление алкоголя вредит вашему здоровью! "Вино к алкоголю не относится"
-
-</nav>
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600">        
+        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../static/css/animate.css">
+		<link rel="stylesheet" href="../static/css/form-elements.css">
+        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="../static/css/media-queries.css">
 
 
-<!-- More services -->
-<div class="more-services-container section-container">
-    <div class="container">
 
-        <div class="row">
-            <div class="col-sm-12 more-services section-description wow fadeIn">
-                <h2>Оценка по введёным показателям</h2>
-                <div class="divider-1 wow fadeInUp"><span></span></div>
-            </div>
+<!--            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+<!--            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
+
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="../static/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="../static/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+    
+        <!-- Loader -->
+    	<div class="loader">
+    		<div class="loader-img"></div>
+    	</div>
+
+		<!-- Top menu -->
+		<nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
+            Употребление алкоголя вредит вашему здоровью! "Вино к алкоголю не относится"
+		</nav>
+
+
+		<!-- More services -->
+        <div class="more-services-container section-container">
+	        <div class="container">
+	        	
+	            <div class="row">
+	                <div class="col-sm-12 more-services section-description wow fadeIn">
+	                    <h2>Оценка по введёным показателям</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                </div>
+	            </div>
+	            
+	            <div class="row">
+	                <div class="col-sm-6 more-services-box wow fadeInLeft">
+	                	<div class="row">
+	                		<div class="col-sm-3">
+	                			<div class="more-services-box-icon">
+	                				<i class="fa fa-paperclip"></i>
+	                			</div>
+	                		</div>
+	                		<div class="col-sm-9">
+	                			<h3>Результат</h3>
+		                    	<p>
+		                    		По подсчётам нашей нейросети, качество составляет:
+									<input type="text" readonly value="{{ result.quality }}">
+		                    	</p>
+	                		</div>
+	                	</div>
+	                </div>
+	        </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-6 more-services-box wow fadeInLeft">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="more-services-box-icon">
-                            <i class="fa fa-paperclip"></i>
-                        </div>
-                    </div>
-                    <div class="col-sm-9">
-                        <h3>Результат</h3>
-                        <p>
-                            По подсчётам нашей нейросети, качество составляет: <input type="text" readonly value="123">
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div style="display: flex; flex-direction: row;">
+			<div style="display: flex; flex-direction: row;">
         <div style="width: 1000px; height:1000px" ><canvas id="RadarChart_1"  ></canvas></div>
         <div style="width: 1000px; height:1000px" ><canvas id="RadarChart_2"  ></canvas></div>
         <div style="width: 1000px; height:1000px" ><canvas id="RadarChart_3"  ></canvas></div>
@@ -101,7 +98,7 @@
                 datasets: [{
                     label: 'Ваши результаты',
                     // data: [0.27, 0.36, 0.045, 1.001, 0.45],
-                    data: [data_result.volatile_acidity,data_result.volatile_acidity,data_result.volatile_acidity,data_result.volatile_acidity,data_result.volatile_acidity],
+                    data: [data_result.volatile_acidity,data_result.citric_acid,data_result.chlorides,data_result.density,data_result.sulphates],
                     fill: true,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgb(255, 99, 132)',
@@ -145,7 +142,8 @@
                 ],
                 datasets: [{
                     label: 'Ваши результаты',
-                    data:[7,3,8.8,6],
+                    // data:[7,3,8.8,6],
+                    data: [data_result.fixed_acidity,data_result.pH,data_result.alcohol,data_result.quality],
                     fill: true,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgb(255, 99, 132)',
@@ -193,7 +191,8 @@
                 ],
                 datasets: [{
                     label: 'Ваши результаты',
-                    data:[20.7,45,170],
+                    // data:[20.7,45,170],
+                    data: [data_result.residual_sugar,data_result.free_sulfur,data_result.total_sulfur],
                     fill: true,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgb(255, 99, 132)',
@@ -231,186 +230,172 @@
             },
         });
     </script>
-
-
-    <!-- Portfolio -->
-    <div class="portfolio-container section-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 portfolio section-description wow fadeIn">
-                    <h2>Ваше вино в сравнение с нашими винами из библиотеки</h2>
-                    <div class="divider-1 wow fadeInUp"><span></span></div>
-                    <p>Сравнение произошло с 4898 разновидностями белых вин</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-box wow fadeInUp">
-                    <div class="portfolio-box-image">
-                        <img src="assets/img/portfolio/1.jpg" alt="" data-at2x="assets/img/portfolio/1.jpg">
+	
+        
+        <!-- Portfolio -->
+        <div class="portfolio-container section-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 portfolio section-description wow fadeIn">
+	                    <h2>Ваше вино в сравнение с нашими винами из библиотеки</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                    <p>Сравнение произошло с 4898 разновидностями белых вин</p>
+	                </div>
+	            </div>
+	            <div class="row">
+                	<div class="col-sm-4 portfolio-box wow fadeInUp">
+	                	<div class="portfolio-box-image">
+	                		<img src="../static/img/portfolio/1.jpg" alt="" data-at2x="img/portfolio/1.jpg">
+	                	</div>
+                		<h3><a href="#">Acme branding</a> <i class="fa fa-angle-right"></i></h3>
+                		<div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> January 2015</div>
+                		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                     </div>
-                    <h3><a href="#">Acme branding</a> <i class="fa fa-angle-right"></i></h3>
-                    <div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> January 2015</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et.</p>
-                </div>
-                <div class="col-sm-4 portfolio-box wow fadeInDown">
-                    <div class="portfolio-box-image">
-                        <img src="assets/img/portfolio/2.jpg" alt="" data-at2x="assets/img/portfolio/2.jpg">
+                    <div class="col-sm-4 portfolio-box wow fadeInDown">
+	                	<div class="portfolio-box-image">
+	                		<img src="../static/img/portfolio/2.jpg" alt="" data-at2x="img/portfolio/2.jpg">
+	                	</div>
+                		<h3><a href="#">WordPress design</a> <i class="fa fa-angle-right"></i></h3>
+                		<div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> March 2015</div>
+                		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                     </div>
-                    <h3><a href="#">WordPress design</a> <i class="fa fa-angle-right"></i></h3>
-                    <div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> March 2015</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et.</p>
-                </div>
-                <div class="col-sm-4 portfolio-box wow fadeInUp">
-                    <div class="portfolio-box-image">
-                        <img src="assets/img/portfolio/3.jpg" alt="" data-at2x="assets/img/portfolio/3.jpg">
+                    <div class="col-sm-4 portfolio-box wow fadeInUp">
+	                	<div class="portfolio-box-image">
+	                		<img src="../static/img/portfolio/3.jpg" alt="" data-at2x="img/portfolio/3.jpg">
+	                	</div>
+                		<h3><a href="#">Created 150 flyers</a> <i class="fa fa-angle-right"></i></h3>
+                		<div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> August 2015</div>
+                		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                     </div>
-                    <h3><a href="#">Created 150 flyers</a> <i class="fa fa-angle-right"></i></h3>
-                    <div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> August 2015</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 section-bottom-button wow fadeInUp">
-                    <a class="btn btn-link-1 scroll-link" href="#testimonials">О белом вине</a>
-                </div>
-            </div>
+	            </div>
+	            <div class="row">
+	            	<div class="col-sm-12 section-bottom-button wow fadeInUp">
+                        <a class="btn btn-link-1 scroll-link" href="#testimonials">О белом вине</a>
+	            	</div>
+	            </div>
+	        </div>
         </div>
-    </div>
 
-    <!-- Testimonials -->
-    <div class="testimonials-container section-container section-container-image-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 testimonials section-description wow fadeIn">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1 testimonial-list wow fadeInUp">
-                    <div role="tabpanel">
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="tab1">
-                                <div class="testimonial-image">
-                                    <img src="assets/img/testimonials/1.jpg" alt=""
-                                         data-at2x="assets/img/testimonials/1.jpg">
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>
-                                        Спасибо за использование нашего сервиса, исскуственные нейронные сети очень
-                                        напряглись от показателей вашего вина<br>
-                                        <a href="#">До скорых встреч!</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="tab2">
-                                <div class="testimonial-image">
-                                    <img src="assets/img/testimonials/2.jpg" alt=""
-                                         data-at2x="assets/img/testimonials/2.jpg">
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>
-                                        Считается, что раньше всего оно появилось в Древней Греции и в Византии, откуда
-                                        и распространилось по всему миру.
-                                        Можно предположить, что белое вино появилось в результате экспериментов и
-                                        совершенствования мастерства древних
-                                        виноделов. Самое печальное, что определить, кто впервые открыл рецепт белого
-                                        вина, нельзя.
-
-                                        <br>
-                                        <a href="https://amwine.ru">Подробнее на https://amwine.ru</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="tab3">
-                                <div class="testimonial-image">
-                                    <img src="assets/img/testimonials/3.jpg" alt=""
-                                         data-at2x="assets/img/testimonials/3.jpg">
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>
-                                        Как подавать Тихие вина подают в бокалах для белого вина, как ни странно. Они по
-                                        форме такие же, как и для красного,
-                                        только меньшего объема – примерно 400 мл. Крепленое белое подают в дижестивных
-                                        бокалах, а игристое – в бокале для
-                                        шампанского или бокале-чаше. <br>
-                                        <a href="https://amwine.ru">Подробнее на https://amwine.ru</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"></a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"></a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <!-- Testimonials -->
+        <div class="testimonials-container section-container section-container-image-bg">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-12 testimonials section-description wow fadeIn">
+	                </div>
+	            </div>
+	            <div class="row">
+	                <div class="col-sm-10 col-sm-offset-1 testimonial-list wow fadeInUp">
+	                	<div role="tabpanel">
+	                		<!-- Tab panes -->
+	                		<div class="tab-content">
+	                			<div role="tabpanel" class="tab-pane fade in active" id="tab1">
+	                				<div class="testimonial-image">
+	                					<img src="../static/img/testimonials/1.jpg" alt="" data-at2x="img/testimonials/1.jpg">
+	                				</div>
+	                				<div class="testimonial-text">
+		                                <p>
+		                                	Спасибо за использование нашего сервиса, исскуственные нейронные сети очень напряглись от показателей вашего вина<br>
+		                                	<a href="#">До скорых встреч!</a>
+		                                </p>
+	                                </div>
+	                			</div>
+	                			<div role="tabpanel" class="tab-pane fade" id="tab2">
+	                				<div class="testimonial-image">
+	                					<img src="../static/img/testimonials/2.jpg" alt="" data-at2x="img/testimonials/2.jpg">
+	                				</div>
+	                				<div class="testimonial-text">
+		                                <p>
+		                                	Считается, что раньше всего оно появилось в Древней Греции и в Византии, откуда и распространилось по всему миру. 
+                                            Можно предположить, что белое вино появилось в результате экспериментов и совершенствования мастерства древних 
+                                            виноделов. Самое печальное, что определить, кто впервые открыл рецепт белого вина, нельзя. 
+                                            
+                                    <br>
+		                                	<a href="https://amwine.ru">Подробнее на https://amwine.ru</a>
+		                                </p>
+	                                </div>
+	                			</div>
+	                			<div role="tabpanel" class="tab-pane fade" id="tab3">
+	                				<div class="testimonial-image">
+	                					<img src="../static/img/testimonials/3.jpg" alt="" data-at2x="img/testimonials/3.jpg">
+	                				</div>
+	                				<div class="testimonial-text">
+		                                <p>
+		                                	Как подавать Тихие вина подают в бокалах для белого вина, как ни странно. Они по форме такие же, как и для красного,
+                                             только меньшего объема – примерно 400 мл. Крепленое белое подают в дижестивных бокалах, а игристое – в бокале для 
+                                             шампанского или бокале-чаше. <br>
+                                             <a href="https://amwine.ru">Подробнее на https://amwine.ru</a>
+		                                </p>
+	                                </div>
+	                			</div>
+	                		</div>
+	                		<!-- Nav tabs -->
+	                		<ul class="nav nav-tabs" role="tablist">
+	                			<li role="presentation" class="active">
+	                				<a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"></a>
+	                			</li>
+	                			<li role="presentation">
+	                				<a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"></a>
+	                			</li>
+	                			<li role="presentation">
+	                				<a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab"></a>
+	                			</li>
+	                		</ul>
+	                	</div>
+	                </div>
+	            </div>
+	        </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 section-bottom-button wow fadeInUp">
-            <a class="btn btn-link-1" href="index.html">Ввести параметры другого вина</a>
-        </div>
-    </div>
-
-</div>
-</div>
-
-
-<!-- Footer -->
-<footer class="footer-container">
-    <div class="container">
         <div class="row">
-            <div class="col-sm-5 col-sm-offset-1 footer-right">
-                <h3>Подписываться на нас не надо, мы здесь ради зачета автоматом</h3>
-                <div class="footer-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                </div>
-                <div class="footer-copyright">
-                    &copy; Для проекта по ЧМВД мы защитили права и никто не скопирует наш проект <br>
-                    Скачать всё это дело можно здесь <a
-                        href="https://github.com/Aarjion/Project_Odinaev_Ryabov_Sartaev">GitHub</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12 footer-bottom">
-                <a class="scroll-link" href="#top-content"><i class="fa fa-chevron-up"></i></a>
+            <div class="col-sm-12 section-bottom-button wow fadeInUp">
+                <a class="btn btn-link-1" href="index.html">Ввести параметры другого вина</a>
             </div>
         </div>
-    </div>
-</footer>
+
+	        </div>
 
 
-<!-- Javascript -->
-<script src="assets/js/jquery-1.11.1.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.backstretch.min.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/retina-1.1.0.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/scripts.js"></script>
+		<footer class="footer-container">
+	        <div class="container">
+	        	<div class="row">
+                    <div class="col-sm-5 col-sm-offset-1 footer-right">
+                    	<h3>Подписываться на нас не надо, мы здесь ради зачета автоматом</h3>
+                    	<div class="footer-social">
+                    		<a href="#"><i class="fa fa-facebook"></i></a>
+	                    	<a href="#"><i class="fa fa-dribbble"></i></a>
+	                    	<a href="#"><i class="fa fa-twitter"></i></a>
+	                    	<a href="#"><i class="fa fa-instagram"></i></a>
+	                    	<a href="#"><i class="fa fa-pinterest"></i></a>
+                    	</div>
+                    	<div class="footer-copyright">
+                    		&copy; Для проекта по ЧМВД мы защитили права и никто не скопирует наш проект <br>
+                            Скачать всё это дело можно здесь <a href="https://github.com/Aarjion/Project_Odinaev_Ryabov_Sartaev">GitHub</a>
+                    	</div>
+                    </div>
+                    
+                </div>
+	        </div>
+	        
+	        <div class="container-fluid">
+	        	<div class="row">
+                	<div class="col-sm-12 footer-bottom">
+                		<a class="scroll-link" href="#top-content"><i class="fa fa-chevron-up"></i></a>
+                	</div>
+                </div>
+	        </div>
+        </footer>
 
 
-</body>
+        <!-- Javascript -->
+        <script src="../static/js/jquery-1.11.1.min.js"></script>
+        <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../static/js/jquery.backstretch.min.js"></script>
+        <script src="../static/js/wow.min.js"></script>
+        <script src="../static/js/retina-1.1.0.min.js"></script>
+        <script src="../static/js/waypoints.min.js"></script>
+        <script src="../static/js/scripts.js"></script>
+        
+  
+
+    </body>
 
 </html>
