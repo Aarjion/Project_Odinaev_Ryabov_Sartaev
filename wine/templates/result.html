@@ -1,392 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+<head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ML_wine quality </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ML_wine quality </title>
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600">        
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/animate.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/media-queries.css">
-		<!--Chartjs CDN-->
-		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media-queries.css">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-			<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
-        <![endif]-->
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body>
+
+<!-- Loader -->
+<div class="loader">
+    <div class="loader-img"></div>
+</div>
+
+<!-- Top menu -->
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
+    Употребление алкоголя вредит вашему здоровью! "Вино к алкоголю не относится"
+
+</nav>
 
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+<!-- More services -->
+<div class="more-services-container section-container">
+    <div class="container">
 
-    </head>
-
-    <body>
-    
-        <!-- Loader -->
-    	<div class="loader">
-    		<div class="loader-img"></div>
-    	</div>
-
-		<!-- Top menu -->
-		<nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
-            Употребление алкоголя вредит вашему здоровью! "Вино к алкоголю не относится"
-		</nav>
-		<canvas id="myRadarChart" width="400" height="400"></canvas>
-		<script>
-			var myRadarChart = new Chart(ctx, {
-				type: 'radar',
-				data: {
-							labels: [
-								'Летучая кислотность',
-								'Лимонная кислота',
-								'Хлориды',
-								'Плотность',
-								'Сульфаты'
-							],
-							datasets: [{
-								label: 'My First Dataset',
-								data:[0.27,0.36,0.045,1.001,0.45],
-								fill: true,
-								backgroundColor: 'rgba(255, 99, 132, 0.2)',
-								borderColor: 'rgb(255, 99, 132)',
-								pointBackgroundColor: 'rgb(255, 99, 132)',
-								pointBorderColor: '#fff',
-								pointHoverBackgroundColor: '#fff',
-								pointHoverBorderColor: 'rgb(255, 99, 132)'
-							}]
-						},
-				options: {
-					elements: {
-						line: {
-							borderWidth: 3
-						}
-					}
-				},
-			});
-		</script>
-
-		<!-- More services -->
-        <div class="more-services-container section-container">
-	        <div class="container">
-	        	
-	            <div class="row">
-	                <div class="col-sm-12 more-services section-description wow fadeIn">
-	                    <h2>Оценка по введёным показателям</h2>
-	                    <div class="divider-1 wow fadeInUp"><span></span></div>
-	                </div>
-	            </div>
-	            
-	            <div class="row">
-	                <div class="col-sm-6 more-services-box wow fadeInLeft">
-	                	<div class="row">
-	                		<div class="col-sm-3">
-	                			<div class="more-services-box-icon">
-	                				<i class="fa fa-paperclip"></i>
-	                			</div>
-	                		</div>
-	                		<div class="col-sm-9">
-	                			<h3>Результат</h3>
-		                    	<p>
-		                    		По подсчётам нашей нейросети, качество составляет: <input type="text" readonly value="123">
-		                    	</p>
-	                		</div>
-	                	</div>
-	                </div>
-	        </div>
-        </div>
-
-	
-        
-        <!-- Portfolio -->
-        <div class="portfolio-container section-container">
-	        <div class="container">
-	            <div class="row">
-	                <div class="col-sm-12 portfolio section-description wow fadeIn">
-	                    <h2>Ваше вино в сравнение с нашими винами из библиотеки</h2>
-	                    <div class="divider-1 wow fadeInUp"><span></span></div>
-						<canvas id="myChart" width="400" height="300"></canvas>
-						<script>
-							var ctx = document.getElementById('myChart').getContext('2d');
-							var myChart = new Chart(ctx, {
-								type: 'bar',
-								data: {
-									labels: ['Летучая кислотность', 'Летучая кислотность'],
-							datasets: [{
-								label: '# of Votes',
-								data: ['Летучая кислотность', 'Летучая кислотность'],
-							backgroundColor: [
-								'rgba(255, 99, 132, 1)',
-								'rgba(54, 162, 235, 1)',
-								'rgba(255, 206, 86, 1)',
-								'rgba(75, 192, 192, 1)',
-								'rgba(153, 102, 255, 1)',
-								'rgba(255, 159, 64, 1)'
-							],
-									borderColor: [
-								'rgba(255, 99, 132, 1)',
-								'rgba(54, 162, 235, 1)',
-								'rgba(255, 206, 86, 1)',
-								'rgba(75, 192, 192, 1)',
-								'rgba(153, 102, 255, 1)',
-								'rgba(255, 159, 64, 1)'
-							],
-									borderWidth: 1
-							}]
-							},
-							options: {
-								scales: {
-									yAxes: [{
-										ticks: {
-											beginAtZero: true
-										}
-									}]
-								}
-							}
-							});
-						</script>
-<!--						<script>-->
-<!--							var myRadarChart = new Chart(ctx, {-->
-<!--								type: 'radar',-->
-<!--								data: data,-->
-<!--								options: {-->
-<!--									elements: {-->
-<!--										line: {-->
-<!--											borderWidth: 3-->
-<!--										}-->
-<!--									}-->
-<!--								},-->
-<!--							});-->
-<!--						</script>-->
-<!--						<script>-->
-<!--							$(document).ready(function() {-->
-<!--								var ctx = $("#chart-line");-->
-<!--								var myLineChart = new Chart(ctx, {-->
-<!--									type: 'radar',-->
-<!--									data: {-->
-<!--										labels: ['Running', 'Swimming', 'Eating', 'Cycling', 'Skating', 'Singing', 'Balling'],-->
-<!--										datasets: [{-->
-<!--											data: [150, 164, 210, 195, 169, 184, 250],-->
-<!--											label: "A Team",-->
-<!--											borderColor: "#458af7",-->
-<!--											backgroundColor: '#458af7',-->
-<!--											fill: true-->
-<!--										}, {-->
-<!--											data: [168, 170, 178, 190, 203, 276, 279],-->
-<!--											label: "B Team",-->
-<!--											borderColor: "#3cba9f",-->
-<!--											fill: true,-->
-<!--											backgroundColor: '#3cba9f'-->
-<!--										}]-->
-<!--									},-->
-<!--									options: {-->
-<!--										title: {-->
-<!--											display: true,-->
-<!--											text: 'School Tournament(Max points - 300)'-->
-<!--										}-->
-<!--									}-->
-<!--								});-->
-<!--							});-->
-<!--						</script>-->
-						<div class="page-content page-container" id="page-content">
-							<div class="padding">
-								<div class="row">
-									<div class="container-fluid d-flex justify-content-center">
-										<div class="col-sm-8 col-md-6">
-											<div class="card">
-												<div class="card-header">Radar chart</div>
-												<div class="card-body" style="height: 420px">
-													<div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-														<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-															<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-														</div>
-														<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-															<div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-														</div>
-													</div> <canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor" style="display: block; width: 299px; height: 200px;"></canvas>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-	                    <p>Сравнение произошло с 4898 разновидностями белых вин</p>
-	                </div>
-	            </div>
-	            <div class="row">
-                	<div class="col-sm-4 portfolio-box wow fadeInUp">
-	                	<div class="portfolio-box-image">
-	                		<img src="assets/img/portfolio/1.jpg" alt="" data-at2x="assets/img/portfolio/1.jpg">
-	                	</div>
-                		<h3><a href="#">Acme branding</a> <i class="fa fa-angle-right"></i></h3>
-                		<div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> January 2015</div>
-                		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                    </div>
-                    <div class="col-sm-4 portfolio-box wow fadeInDown">
-	                	<div class="portfolio-box-image">
-	                		<img src="assets/img/portfolio/2.jpg" alt="" data-at2x="assets/img/portfolio/2.jpg">
-	                	</div>
-                		<h3><a href="#">WordPress design</a> <i class="fa fa-angle-right"></i></h3>
-                		<div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> March 2015</div>
-                		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                    </div>
-                    <div class="col-sm-4 portfolio-box wow fadeInUp">
-	                	<div class="portfolio-box-image">
-	                		<img src="assets/img/portfolio/3.jpg" alt="" data-at2x="assets/img/portfolio/3.jpg">
-	                	</div>
-                		<h3><a href="#">Created 150 flyers</a> <i class="fa fa-angle-right"></i></h3>
-                		<div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> August 2015</div>
-                		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                    </div>
-	            </div>
-	            <div class="row">
-	            	<div class="col-sm-12 section-bottom-button wow fadeInUp">
-                        <a class="btn btn-link-1 scroll-link" href="#testimonials">О белом вине</a>
-	            	</div>
-	            </div>
-	        </div>
-        </div>
-
-        <!-- Testimonials -->
-        <div class="testimonials-container section-container section-container-image-bg">
-	        <div class="container">
-	            <div class="row">
-	                <div class="col-sm-12 testimonials section-description wow fadeIn">
-	                </div>
-	            </div>
-	            <div class="row">
-	                <div class="col-sm-10 col-sm-offset-1 testimonial-list wow fadeInUp">
-	                	<div role="tabpanel">
-	                		<!-- Tab panes -->
-	                		<div class="tab-content">
-	                			<div role="tabpanel" class="tab-pane fade in active" id="tab1">
-	                				<div class="testimonial-image">
-	                					<img src="assets/img/testimonials/1.jpg" alt="" data-at2x="assets/img/testimonials/1.jpg">
-	                				</div>
-	                				<div class="testimonial-text">
-		                                <p>
-		                                	Спасибо за использование нашего сервиса, исскуственные нейронные сети очень напряглись от показателей вашего вина<br>
-		                                	<a href="#">До скорых встреч!</a>
-		                                </p>
-	                                </div>
-	                			</div>
-	                			<div role="tabpanel" class="tab-pane fade" id="tab2">
-	                				<div class="testimonial-image">
-	                					<img src="assets/img/testimonials/2.jpg" alt="" data-at2x="assets/img/testimonials/2.jpg">
-	                				</div>
-	                				<div class="testimonial-text">
-		                                <p>
-		                                	Считается, что раньше всего оно появилось в Древней Греции и в Византии, откуда и распространилось по всему миру. 
-                                            Можно предположить, что белое вино появилось в результате экспериментов и совершенствования мастерства древних 
-                                            виноделов. Самое печальное, что определить, кто впервые открыл рецепт белого вина, нельзя. 
-                                            
-                                    <br>
-		                                	<a href="https://amwine.ru">Подробнее на https://amwine.ru</a>
-		                                </p>
-	                                </div>
-	                			</div>
-	                			<div role="tabpanel" class="tab-pane fade" id="tab3">
-	                				<div class="testimonial-image">
-	                					<img src="assets/img/testimonials/3.jpg" alt="" data-at2x="assets/img/testimonials/3.jpg">
-	                				</div>
-	                				<div class="testimonial-text">
-		                                <p>
-		                                	Как подавать Тихие вина подают в бокалах для белого вина, как ни странно. Они по форме такие же, как и для красного,
-                                             только меньшего объема – примерно 400 мл. Крепленое белое подают в дижестивных бокалах, а игристое – в бокале для 
-                                             шампанского или бокале-чаше. <br>
-                                             <a href="https://amwine.ru">Подробнее на https://amwine.ru</a>
-		                                </p>
-	                                </div>
-	                			</div>
-	                		</div>
-	                		<!-- Nav tabs -->
-	                		<ul class="nav nav-tabs" role="tablist">
-	                			<li role="presentation" class="active">
-	                				<a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"></a>
-	                			</li>
-	                			<li role="presentation">
-	                				<a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"></a>
-	                			</li>
-	                			<li role="presentation">
-	                				<a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab"></a>
-	                			</li>
-	                		</ul>
-	                	</div>
-	                </div>
-	            </div>
-	        </div>
-        </div>
         <div class="row">
-            <div class="col-sm-12 section-bottom-button wow fadeInUp">
-                <a class="btn btn-link-1" href="index.html">Ввести параметры другого вина</a>
+            <div class="col-sm-12 more-services section-description wow fadeIn">
+                <h2>Оценка по введёным показателям</h2>
+                <div class="divider-1 wow fadeInUp"><span></span></div>
             </div>
         </div>
 
-	        </div>
-        </div>
-        
-
-        <!-- Footer -->
-        <footer class="footer-container">
-	        <div class="container">
-	        	<div class="row">
-                    <div class="col-sm-5 col-sm-offset-1 footer-right">
-                    	<h3>Подписываться на нас не надо, мы здесь ради зачета автоматом</h3>
-                    	<div class="footer-social">
-                    		<a href="#"><i class="fa fa-facebook"></i></a>
-	                    	<a href="#"><i class="fa fa-dribbble"></i></a>
-	                    	<a href="#"><i class="fa fa-twitter"></i></a>
-	                    	<a href="#"><i class="fa fa-instagram"></i></a>
-	                    	<a href="#"><i class="fa fa-pinterest"></i></a>
-                    	</div>
-                    	<div class="footer-copyright">
-                    		&copy; Для проекта по ЧМВД мы защитили права и никто не скопирует наш проект <br>
-                            Скачать всё это дело можно здесь <a href="https://github.com/Aarjion/Project_Odinaev_Ryabov_Sartaev">GitHub</a>
-                    	</div>
+        <div class="row">
+            <div class="col-sm-6 more-services-box wow fadeInLeft">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="more-services-box-icon">
+                            <i class="fa fa-paperclip"></i>
+                        </div>
                     </div>
-                    
+                    <div class="col-sm-9">
+                        <h3>Результат</h3>
+                        <p>
+                            По подсчётам нашей нейросети, качество составляет: <input type="text" readonly value="123">
+                        </p>
+                    </div>
                 </div>
-	        </div>
-	        
-	        <div class="container-fluid">
-	        	<div class="row">
-                	<div class="col-sm-12 footer-bottom">
-                		<a class="scroll-link" href="#top-content"><i class="fa fa-chevron-up"></i></a>
-                	</div>
+            </div>
+        </div>
+    </div>
+    <canvas id="myRadarChart" width="400" height="400"></canvas>
+    <script>
+        var ctx = document.getElementById('myRadarChart').getContext('2d');
+        var myRadarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'Летучая кислотность',
+                    'Лимонная кислота',
+                    'Хлориды',
+                    'Плотность',
+                    'Сульфаты'
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [0.27, 0.36, 0.045, 1.001, 0.45],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)'
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                }
+            },
+        });
+    </script>
+
+
+    <!-- Portfolio -->
+    <div class="portfolio-container section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 portfolio section-description wow fadeIn">
+                    <h2>Ваше вино в сравнение с нашими винами из библиотеки</h2>
+                    <div class="divider-1 wow fadeInUp"><span></span></div>
+                    <p>Сравнение произошло с 4898 разновидностями белых вин</p>
                 </div>
-	        </div>
-        </footer>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-box wow fadeInUp">
+                    <div class="portfolio-box-image">
+                        <img src="assets/img/portfolio/1.jpg" alt="" data-at2x="assets/img/portfolio/1.jpg">
+                    </div>
+                    <h3><a href="#">Acme branding</a> <i class="fa fa-angle-right"></i></h3>
+                    <div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> January 2015</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et.</p>
+                </div>
+                <div class="col-sm-4 portfolio-box wow fadeInDown">
+                    <div class="portfolio-box-image">
+                        <img src="assets/img/portfolio/2.jpg" alt="" data-at2x="assets/img/portfolio/2.jpg">
+                    </div>
+                    <h3><a href="#">WordPress design</a> <i class="fa fa-angle-right"></i></h3>
+                    <div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> March 2015</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et.</p>
+                </div>
+                <div class="col-sm-4 portfolio-box wow fadeInUp">
+                    <div class="portfolio-box-image">
+                        <img src="assets/img/portfolio/3.jpg" alt="" data-at2x="assets/img/portfolio/3.jpg">
+                    </div>
+                    <h3><a href="#">Created 150 flyers</a> <i class="fa fa-angle-right"></i></h3>
+                    <div class="portfolio-box-date"><i class="fa fa-calendar-o"></i> August 2015</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 section-bottom-button wow fadeInUp">
+                    <a class="btn btn-link-1 scroll-link" href="#testimonials">О белом вине</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testimonials-container section-container section-container-image-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 testimonials section-description wow fadeIn">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 testimonial-list wow fadeInUp">
+                    <div role="tabpanel">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="tab1">
+                                <div class="testimonial-image">
+                                    <img src="assets/img/testimonials/1.jpg" alt=""
+                                         data-at2x="assets/img/testimonials/1.jpg">
+                                </div>
+                                <div class="testimonial-text">
+                                    <p>
+                                        Спасибо за использование нашего сервиса, исскуственные нейронные сети очень
+                                        напряглись от показателей вашего вина<br>
+                                        <a href="#">До скорых встреч!</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="tab2">
+                                <div class="testimonial-image">
+                                    <img src="assets/img/testimonials/2.jpg" alt=""
+                                         data-at2x="assets/img/testimonials/2.jpg">
+                                </div>
+                                <div class="testimonial-text">
+                                    <p>
+                                        Считается, что раньше всего оно появилось в Древней Греции и в Византии, откуда
+                                        и распространилось по всему миру.
+                                        Можно предположить, что белое вино появилось в результате экспериментов и
+                                        совершенствования мастерства древних
+                                        виноделов. Самое печальное, что определить, кто впервые открыл рецепт белого
+                                        вина, нельзя.
+
+                                        <br>
+                                        <a href="https://amwine.ru">Подробнее на https://amwine.ru</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="tab3">
+                                <div class="testimonial-image">
+                                    <img src="assets/img/testimonials/3.jpg" alt=""
+                                         data-at2x="assets/img/testimonials/3.jpg">
+                                </div>
+                                <div class="testimonial-text">
+                                    <p>
+                                        Как подавать Тихие вина подают в бокалах для белого вина, как ни странно. Они по
+                                        форме такие же, как и для красного,
+                                        только меньшего объема – примерно 400 мл. Крепленое белое подают в дижестивных
+                                        бокалах, а игристое – в бокале для
+                                        шампанского или бокале-чаше. <br>
+                                        <a href="https://amwine.ru">Подробнее на https://amwine.ru</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"></a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"></a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 section-bottom-button wow fadeInUp">
+            <a class="btn btn-link-1" href="index.html">Ввести параметры другого вина</a>
+        </div>
+    </div>
+
+</div>
+</div>
 
 
-        <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/retina-1.1.0.min.js"></script>
-        <script src="assets/js/waypoints.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
-        
-  
+<!-- Footer -->
+<footer class="footer-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 footer-right">
+                <h3>Подписываться на нас не надо, мы здесь ради зачета автоматом</h3>
+                <div class="footer-social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                </div>
+                <div class="footer-copyright">
+                    &copy; Для проекта по ЧМВД мы защитили права и никто не скопирует наш проект <br>
+                    Скачать всё это дело можно здесь <a
+                        href="https://github.com/Aarjion/Project_Odinaev_Ryabov_Sartaev">GitHub</a>
+                </div>
+            </div>
 
-    </body>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 footer-bottom">
+                <a class="scroll-link" href="#top-content"><i class="fa fa-chevron-up"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Javascript -->
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/retina-1.1.0.min.js"></script>
+<script src="assets/js/waypoints.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+
+</body>
 
 </html>
