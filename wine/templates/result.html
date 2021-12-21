@@ -86,6 +86,7 @@
     </div>
 
     <script>
+        var data_result = {{ result | tojson }};
         var ctx_1 = document.getElementById('RadarChart_1').getContext('2d');
         var RadarChart_1 = new Chart(ctx_1, {
             type: 'radar',
@@ -99,7 +100,8 @@
                 ],
                 datasets: [{
                     label: 'Ваши результаты',
-                    data: [0.27, 0.36, 0.045, 1.001, 0.45],
+                    // data: [0.27, 0.36, 0.045, 1.001, 0.45],
+                    data: [data_result.volatile_acidity,data_result.volatile_acidity,data_result.volatile_acidity,data_result.volatile_acidity,data_result.volatile_acidity],
                     fill: true,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgb(255, 99, 132)',
