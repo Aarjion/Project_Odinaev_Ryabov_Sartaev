@@ -1,3 +1,7 @@
+import json
+
+from django.core import serializers
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Wine
 
@@ -7,11 +11,14 @@ def index(request):
 
 
 def result(request):
-    if 'wine_data' in request.GET:
-        wine_data = request.GET['wine_data']
-        wine = Wine.create(wine_data['fixed_acidity'], wine_data['volatile_acidity'], wine_data['citric_acid'],
-                           wine_data['residual_sugar'], wine_data['chlorides'], wine_data['free_sulfur'],
-                           wine_data['total_sulfur'], wine_data['density'], wine_data['pH'], wine_data['sulphates'],
-                           wine_data['alcohol'])
-        wine.quality = wine.find_quality()
-        return render(request, 'result.html', {'result': wine})
+    wine = Wine.create(request.GET['fixed_acidity'], request.GET['volatile_acidity'], request.GET['citric_acid'],
+                       request.GET['residual_sugar'], request.GET['chlorides'], request.GET['free_sulfur'],
+                       request.GET['total_sulfur'], request.GET['density'], request.GET['pH'], request.GET['sulphates'],
+                       request.GET['alcohol'])
+    wine.quality = wine.find_quality()
+    #govnokod2
+    cock = {'fixed_acidity': request.GET['fixed_acidity'], 'volatile_acidity': request.GET['volatile_acidity'], 'citric_acid': request.GET['citric_acid'],
+                       'residual_sugar': request.GET['residual_sugar'], 'chlorides': request.GET['chlorides'], 'free_sulfur': request.GET['free_sulfur'],
+                       'total_sulfur': request.GET['total_sulfur'], 'density': request.GET['density'], 'pH': request.GET['pH'], 'sulphates': request.GET['sulphates'],
+                       'alcohol': request.GET['alcohol']}
+    return render(request, 'result.html', {'result': wine, 'cock': json.dumps(cock)})
